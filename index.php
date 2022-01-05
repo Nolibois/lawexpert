@@ -2,6 +2,9 @@
   require_once "./Class/Form.php";
 
   $form = new Form($_POST);
+  if (isset($_POST)) {
+    var_dump($_POST);
+  }
 ?>
 <!DOCTYPE html>
 <html class="wide wow-animation" lang="en">
@@ -560,7 +563,15 @@
             <div class="col-md-10 col-lg-9 col-xl-7">
               <div class="section-50 section-md-75 section-xl-100">
                 <h3>Free Consultation</h3>
-                <form class="rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+
+                <div class="box-cart-body">
+                  <?php
+                    $form->displayInfosContact($_POST);
+                  ?>
+                </div>
+
+
+                <form class="rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="#">
                   <div class="row row-30">
                     <div class="col-md-6">
                       <div class="form-wrap">
@@ -605,12 +616,18 @@
                       <div class="form-wrap">
                         <!-- <textarea class="form-input" id="feedback-2-message" name="message" data-constraints="@Required"></textarea>
                         <label class="form-label" for="feedback-2-message">Message</label> -->
+                        <?php
+                          $form->createTextarea();
+                        ?>
                       </div>
                     </div>
                     <div class="col-12">
                       <div class="row">
                         <div class="col-md-6">
-                          <button class="button button-block button-primary" type="submit">Request a Free Consultation</button>
+                          <!-- <button class="button button-block button-primary" type="submit">Request a Free Consultation</button> -->
+                          <?php
+                            $form->createSubmit("Request A Free Cconsultation");
+                          ?>
                         </div>
                       </div>
                     </div>

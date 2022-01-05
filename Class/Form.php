@@ -64,14 +64,19 @@ class Form{
   {
     echo '
       <select class="form-input select-filter" id="request-form-select" data-minimum-results-for-search="Infinity">
-      <option>' .$option1. '</option>
-      <option value="' .$option1. '">' .$option1. '</option>
-      <option value="' .$option2. '">' .$option2. '</option>
-      <option value="' .$option3. '">' .$option3. '</option>
+        <option>' .$option1. '</option>
+        <option value="' .$option1. '">' .$option1. '</option>
+        <option value="' .$option2. '">' .$option2. '</option>
+        <option value="' .$option3. '">' .$option3. '</option>
       </select>
     ';
   }
-
+  
+  /**
+   * createTextarea
+   *
+   * @return void
+   */
   public function createTextarea(): void
   {
     echo '
@@ -88,13 +93,35 @@ class Form{
    * @param  string $class
    * @return void
    */
-  public function createSubmit(string $text, string $class = "null"): void
+  public function createSubmit(string $text): void
   {
-    echo "
-      <div>
-        <button type='submit' class=$class>$text</button>
+    echo '
+      <button class="button button-block button-primary" type="submit">' .$text. '</button>
+    ';
+  }
+  
+
+  /**
+   * displayInfosContact
+   *
+   * @param  array $infosContact
+   * @return void
+   */
+  public function displayInfosContact(array $infosContact): void
+  {
+
+    // Extruding of dataset
+    $listInfosContact = "";
+    foreach ($infosContact as $key => $value){
+      $listInfosContact += "<li>Votre $key: $value</li>";
+    }
+
+    echo '
+      <div class="blockquote-complex blockquote-complex-inverse">
+      <h4>Vos informations:</h4>
+      <ul>' .$listInfosContact. '</ul>
       </div>
-    ";
+    ';
   }
 
 }
