@@ -1,3 +1,8 @@
+<?php
+  require_once "/Class/Form.php";
+
+  $form = new Form();
+?>
 <!DOCTYPE html>
 <html class="wide wow-animation" lang="en">
   <head>
