@@ -107,21 +107,19 @@ class Form{
    * @param  array $infosContact
    * @return void
    */
-  public function displayInfosContact(array $infosContact): void
+  public function displayInfosContact(array $toto): void
   {
-
-    // Extruding of dataset
-    $listInfosContact = "";
-    foreach ($infosContact as $key => $value){
-      $listInfosContact += "<li>Votre $key: $value</li>";
-    }
 
     echo '
       <div class="blockquote-complex blockquote-complex-inverse">
       <h4>Vos informations:</h4>
-      <ul>' .$listInfosContact. '</ul>
-      </div>
-    ';
+      <ul>';
+    
+    foreach ($toto as $key => $value){
+      echo "<li>Votre $key: $value</li>";
+    }
+
+    echo '</ul></div>';
   }
 
 }
